@@ -1,5 +1,4 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { Robot } from "react-bootstrap-icons";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import porcentaje from "../assets/imagenes/html5.png";
