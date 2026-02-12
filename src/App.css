@@ -494,7 +494,12 @@ section {
   position: absolute;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255, 0, 255, 0.3), transparent);
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 255, 0.08) 0%,
+    rgba(255, 0, 255, 0.04) 40%,
+    transparent 70%
+  );
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -513,15 +518,37 @@ section {
   margin: 1em 0 1.5em 0;
 }
 .item {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative; /* importante si usamos efecto espejo */
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
   padding: 2.5rem 1.5rem;
   text-align: center;
+
   transition: all 0.4s ease;
-  cursor: pointer;
 }
+.item:hover {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  pointer-events: none;
+}
+
 .item img {
   height: 5em;
   width: 5em;
@@ -533,14 +560,7 @@ section {
   letter-spacing: 1px;
   font-weight: 600;
 }
-.item:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(255, 0, 255, 0.2);
-  border: 1px solid fuchsia;
-}
-.item:hover img {
-  transform: scale(1.15);
-}
+
 .react-multi-carousel-dot button {
   background: rgba(255, 255, 255, 0.3);
   border: none;
@@ -685,16 +705,30 @@ section {
 
 .contact-right {
   text-align: left;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  transition: all 0.3s ease;
-  animation-delay: 0.3s;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
 }
+.contact-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  pointer-events: none;
+}
+
 .contact-right:hover {
   box-shadow: 0 12px 40px rgba(255, 0, 255, 0.25);
 }
