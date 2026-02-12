@@ -28,7 +28,7 @@ export const Skills = () => {
   };
 
   return (
-    <section className="skill" id="skills">
+    <section className="skill" id="habilidades">
       <Container>
         <Row>
           <Col>
@@ -39,6 +39,11 @@ export const Skills = () => {
                 responsive={responsive}
                 infinite={true}
                 className="owl-carousel owl-theme skill-slider"
+                autoPlay={true}
+                autoPlaySpeed={3000}
+                transitionDuration={800}
+                arrows={false}
+                showDots={true}
               >
                 <div className="item">
                   <img src={porcentaje} alt="porcentaje" />

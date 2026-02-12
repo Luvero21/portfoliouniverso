@@ -57,11 +57,15 @@ export const Banner = () => {
               <h2 className="wrap">{text}</h2>
             </div>
             <p>
-              Hi!!!!, soy Luciana una Programadora web, en el camino
-              interminable del conocimiento que inicié en los finales de la
-              pandemia, y voy por mas en este proceso interminable de las nuevas
-              tecnologias.
+              Una programadora web, mi recorrido comenzó en un momento de cambio
+              global y desde entonces no he dejado de aprender. Descubrí en el
+              desarrollo una mezcla perfecta entre lógica, creatividad y
+              resolución de problemas. Hoy construyo experiencias digitales
+              modernas mientras sigo avanzando en este camino interminable de
+              nuevas tecnologías, donde cada proyecto es una oportunidad de
+              crecer.
             </p>
+
             <button onClick={() => console.log("connect")}>
               Conectemonos! <ArrowRightCircle size={25} />
             </button>
