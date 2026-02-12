@@ -7,8 +7,9 @@ export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState("");
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const period = 1800;
+  const [delta, setDelta] = useState(80 - Math.random() * 20);
+
+  const period = 600;
 
   // ✅ memorizado para que no cambie en cada render
   const toRotate = useMemo(() => [" Desarrolladora Web "], []);
@@ -57,16 +58,21 @@ export const Banner = () => {
               <h2 className="wrap">{text}</h2>
             </div>
             <p>
-              Una programadora web, mi recorrido comenzó en un momento de cambio
-              global y desde entonces no he dejado de aprender. Descubrí en el
-              desarrollo una mezcla perfecta entre lógica, creatividad y
-              resolución de problemas. Hoy construyo experiencias digitales
-              modernas mientras sigo avanzando en este camino interminable de
-              nuevas tecnologías, donde cada proyecto es una oportunidad de
-              crecer.
+              Mi recorrido comenzó en un momento de cambio global y desde
+              entonces no he dejado de aprender. Descubrí en el desarrollo una
+              mezcla perfecta entre lógica, creatividad y resolución de
+              problemas. Hoy construyo experiencias digitales modernas mientras
+              sigo avanzando en este camino interminable de nuevas tecnologías,
+              donde cada proyecto es una oportunidad de crecer.
             </p>
 
-            <button onClick={() => console.log("connect")}>
+            <button
+              onClick={() => {
+                document
+                  .getElementById("contacto")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               Conectemonos! <ArrowRightCircle size={25} />
             </button>
           </Col>

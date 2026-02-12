@@ -13,7 +13,6 @@ const Contact = () => {
         <div className="contact-container">
           {/* LEFT */}
           <div className="contact-left">
-            <h3>Espero tu mensaje</h3>
             <p>
               Buenas! Estoy disponible para asumir nuevos proyectos. No dudes en
               contactarme y ponernos de acuerdo. Gracias!

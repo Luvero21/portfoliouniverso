@@ -23,6 +23,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 7.5 vw;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 body {
   font-weight: 400;
@@ -31,6 +33,7 @@ body {
   background-image: url(../src/assets/imagenes/header.jpg);
   color: #fff !important;
   font-family: "Centra", sans-serif !important;
+  max-width: 100%;
 }
 h1,
 h2,
@@ -46,70 +49,38 @@ h6 {
 
 @media (max-width: 768px) {
   .navbar-collapse {
-    position: fixed;
+    position: absolute;
     top: 70px;
-    right: 0;
-    opacity: 0.5;
-    width: 30%;
-    height: auto;
-    background-color: transparent;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 1rem;
-    border-radius: 20px 0 0 20px;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(-80%);
-    border: solid 3 px fuchsia;
-    font-family: revicons;
-    font-size: 15px;
-    border: solid 2 px fuchsia;
-    border-radius: 30%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 85%;
+    max-width: 320px;
+
+    background: rgba(18, 18, 25, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: 15px;
+
+    opacity: 0;
+    transition: all 0.3s ease;
   }
 
   .navbar-collapse.show {
-    transform: translateX(0);
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
   }
 
   .navbar-nav .nav-link {
-    color: white;
-    width: 100%;
-    text-align: left;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .navbar-toggler {
-    position: absolute;
-    right: 10px;
-  }
-
-  .navbar-brand,
-  .navbar-nav .nav-link {
-    margin-left: 1rem;
-  }
-
-  .What {
-    display: none !important;
-  }
-  .ins {
-    display: none !important;
-  }
-  .cv {
-    display: none;
-  }
-  .containerr {
-    display: none;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    opacity: 1 !important;
   }
 }
 
-@media (min-width: 769px) {
-  .navbar-text .social-icon,
-  .navbar-text .cv {
-    display: inline-block;
-  }
-}
 nav.navbar {
   padding: 1.7vw 0;
   position: fixed;
@@ -123,7 +94,7 @@ nav.navbar {
 nav.navbar.scrolled {
   padding: 0px 0;
   background-color: #121219;
-  opacity: 0.7;
+  background-color: rgba(18, 18, 25, 0.9);
 }
 
 nav.navbar a.navbar-brand {
@@ -162,7 +133,8 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   color: #fff !important;
   padding: 0 0.5em;
   font-size: 1.5em;
-  opacity: 0.75;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
@@ -188,6 +160,8 @@ span.navbar-text {
   justify-content: center;
   line-height: 1;
   border: 0.1em solid white;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
 }
 .social-icon a::before {
   content: "";
@@ -201,6 +175,7 @@ span.navbar-text {
 }
 .social-icon a:hover::before {
   transform: scale(1);
+  opacity: 1;
 }
 
 .social-icon a img {
@@ -221,11 +196,14 @@ span.navbar-text {
   margin-left: 1.8em;
   background-color: violet;
   transition: 0.3s ease-in-out;
+  opacity: 0.6;
 }
 
 .navbar-text button:hover {
   transform: scale(1.1);
   box-shadow: 0 0 0.15em 0.2em fuchsia;
+  opacity: 1;
+  background-color: rgba(238, 130, 238, 0.6);
 }
 
 .navbar-toggler-icon {
@@ -297,6 +275,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1em;
 }
 
 .wrap {
@@ -419,6 +398,7 @@ section {
 
 @media (max-width: 768px) {
   /* HERO */
+
   .banner h1 {
     font-size: 1.6em;
   }
@@ -432,6 +412,10 @@ section {
   }
 
   /* SKILLS */
+  .skill {
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+  }
   .Skills h2 {
     font-size: 1.6em;
   }
@@ -462,6 +446,15 @@ section {
 
   .contact-title h1 {
     font-size: 1.5em;
+  }
+  .banner {
+    padding: 8em 0 3em 0;
+  }
+  .item {
+    padding: 1em;
+  }
+  section {
+    padding: 1em;
   }
 }
 
@@ -617,7 +610,7 @@ section {
 
 .contact-title h2 {
   font-size: 2.2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   font-weight: 700;
 }
 
@@ -626,16 +619,6 @@ section {
   position: relative;
   width: 100%;
   padding: 4rem 0;
-  background: url("./assets/imagenes/header.jpg") center/cover no-repeat;
-}
-
-/* Capa oscura sobre el fondo */
-.contact-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 0;
 }
 
 /* Contenedor interno centrado */
@@ -786,6 +769,12 @@ section {
   .contact-detail {
     justify-content: center;
   }
+  .contact {
+    padding: 1em;
+  }
+  .contact-section {
+    padding: 1em;
+  }
 }
 
 /******************Footer************************/
@@ -872,5 +861,6 @@ section {
   section.project h2 {
     font-size: 1.6em !important;
     line-height: 1.2;
+    padding: 1em;
   }
 }
