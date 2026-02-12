@@ -48,21 +48,35 @@ h6 {
 /****************Navbar*****************/
 
 @media (max-width: 768px) {
-  .navbar-collapse {
-    position: absolute;
-    top: 70px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    width: 85%;
-    max-width: 320px;
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      position: fixed;
+      top: 70px; /* debajo del navbar */
+      right: 15px;
 
-    background: rgba(18, 18, 25, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 1rem;
-    border-radius: 15px;
+      width: 240px;
+      height: auto; /* 👈 clave para que no ocupe toda la pantalla */
 
-    opacity: 0;
-    transition: all 0.3s ease;
+      background: rgba(20, 20, 30, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      padding: 1.5rem;
+      border-radius: 18px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+
+      animation: fadeSlide 0.25s ease forwards;
+    }
+
+    .navbar-nav {
+      align-items: flex-start !important;
+      gap: 0.8rem;
+    }
+
+    .navbar-text {
+      margin-top: 1.2rem;
+      text-align: left;
+    }
   }
 
   .navbar-collapse.show {
@@ -70,8 +84,15 @@ h6 {
     opacity: 1;
   }
 
-  .navbar-nav {
-    flex-direction: column;
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) translateX(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) translateX(0);
+    }
   }
 
   .navbar-nav .nav-link {
@@ -793,6 +814,7 @@ section {
   .contact-container {
     grid-template-columns: 1fr;
     gap: 3rem;
+    padding: 0.7em;
   }
 
   .contact-left,
@@ -804,9 +826,12 @@ section {
     justify-content: center;
   }
   .contact {
-    padding: 1em;
+    padding: 0.7em;
   }
   .contact-section {
+    padding: 1em;
+  }
+  .contact-right {
     padding: 1em;
   }
 }
